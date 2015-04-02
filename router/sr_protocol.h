@@ -89,16 +89,6 @@ struct sr_icmp_hdr {
 } __attribute__ ((packed)) ;
 typedef struct sr_icmp_hdr sr_icmp_hdr_t;
 
-
-struct sr_icmp_echo_hdr {
-  uint8_t icmp_type;
-  uint8_t icmp_code;
-  uint16_t icmp_sum;
-  uint16_t icmp_id;
-  uint16_t icmp_seq;
-} __attribute__ ((packed)) ;
-typedef struct sr_icmp_echo_hdr sr_icmp_echo_hdr_t;
-
 /* Structure of a type3 ICMP header
  */
 struct sr_icmp_t3_hdr {
@@ -188,24 +178,6 @@ struct sr_arp_hdr
     uint32_t        ar_tip;             /* target IP address            */
 } __attribute__ ((packed)) ;
 typedef struct sr_arp_hdr sr_arp_hdr_t;
-
-
-struct sr_ip_msg {
-  sr_ethernet_hdr_t etherpart;
-  sr_ip_hdr_t ippart;
-} __attribute__ ((packed));
-
-struct sr_icmp_echo_msg {
-  sr_ethernet_hdr_t etherpart;
-  sr_ip_hdr_t ippart;
-  sr_icmp_echo_hdr_t echo;
-} __attribute__ ((packed));
-
-struct sr_icmp_msg {
-  sr_ethernet_hdr_t etherpart;
-  sr_ip_hdr_t ippart;
-  sr_icmp_hdr_t icmp;
-} __attribute__ ((packed));
 
 #define sr_IFACE_NAMELEN 32
 
